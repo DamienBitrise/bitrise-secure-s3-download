@@ -12,7 +12,7 @@ begin
     raise 'Error: Not all fields set cannot proceed!'
   end
 
-  s3 = Aws::S3::Resource.new(region: params.region, credentials: Aws::Credentials.new(params.client_id, params.secret))
+  s3 = Aws::S3::Resource.new(region: params.region, credentials: Aws::Credentials.new(params.client_id, params.secret), http_wire_trace: true)
 
   obj = s3.bucket(params.bucket).object(params.object)
 
